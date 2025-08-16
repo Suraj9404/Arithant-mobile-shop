@@ -1,0 +1,54 @@
+<%- include('navbar') %> <!-- Navbar include -->
+
+<div class="container mt-4">
+    <h2 class="mb-4">Edit Service</h2>
+
+    <form method="POST" action="/admin/services_edit/<%= service.id %>" class="card p-4 shadow-sm">
+        
+        <!-- Heading -->
+        <div class="mb-3">
+            <label class="form-label">Heading</label>
+            <input type="text" name="title" class="form-control" value="<%= service.title %>" required>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea name="description" class="form-control" rows="3" required><%= service.description %></textarea>
+        </div>
+
+        <!-- Topics -->
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Topic 1</label>
+                <input type="text" name="topic1" class="form-control" value="<%= service.topic1 %>" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Topic 2</label>
+                <input type="text" name="topic2" class="form-control" value="<%= service.topic2 %>" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Topic 3</label>
+                <input type="text" name="topic3" class="form-control" value="<%= service.topic3 %>" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Topic 4</label>
+                <input type="text" name="topic4" class="form-control" value="<%= service.topic4 %>" required>
+            </div>
+        </div>
+
+        <!-- Price -->
+        <div class="mb-3">
+            <label class="form-label">Amount (₹)</label>
+            <input type="number" name="price" class="form-control" value="<%= service.price %>" required>
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-between">
+            <a href="/admin/services" class="btn btn-secondary">⬅ Back</a>
+            <button type="submit" class="btn btn-success">💾 Update</button>
+        </div>
+    </form>
+</div>
+
+<%- include('footer') %> <!-- Footer include -->

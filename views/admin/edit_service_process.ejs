@@ -1,0 +1,21 @@
+<%- include('navbar') %>
+<div class="container mt-4">
+    <h2>Edit Service Process Step</h2>
+    <form method="POST" action="/admin/service_process_edit/<%= step.id %>" class="card p-4">
+        <div class="mb-3">
+            <label>Step No</label>
+            <input type="text" class="form-control" value="<%= step.step_no %>" disabled>
+        </div>
+        <div class="mb-3">
+            <label>Title</label>
+            <input type="text" name="title" class="form-control" value="<%= step.title %>" required>
+        </div>
+        <div class="mb-3">
+            <label>Description</label>
+            <textarea name="description" class="form-control" required><%= step.description %></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Update</button>
+        <a href="/admin/service_process" class="btn btn-secondary">Back</a>
+    </form>
+</div>
+<%- include('footer') %>

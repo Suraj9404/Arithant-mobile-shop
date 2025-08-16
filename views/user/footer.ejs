@@ -1,0 +1,255 @@
+
+<footer class="custom-footer-bg py-5 border-top border-secondary text-white">
+    <div class="container px-4 text-white ">
+        <div class="row g-5 mb-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="p-2 rounded-3 me-3">
+                        <img src="/uploads/logo.png" alt="Logo" class="img-fluid custom-footer-logo">
+                    </div>
+                    <h3 class="h5 fw-bold text-white mb-0">Arihant Mobile Shop</h3>
+                </div>
+
+                <p class="text-white mb-3">
+                    Your trusted destination for premium mobile devices and accessories.
+                </p>
+
+                <div class="d-flex gap-3">
+                    <a href=https://www.facebook.com/amwahmednagar/#" class="text-white hover-orange fs-5">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-white hover-orange fs-5">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/arihant_mobile_world/" class="text-white hover-orange fs-5">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-white hover-orange fs-5">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <h4 class="fw-semibold h6 mb-4">Quick Links</h4>
+                <ul class="list-unstyled custom-list-spacing ">
+                    <li><a href="/" class="text-white hover-orange text-decoration-none">Home</a></li>
+                    <li><a href="/product" class="text-white hover-orange text-decoration-none">Products</a></li>
+                    <li><a href="/service" class="text-white hover-orange text-decoration-none">Services</a></li>
+                    <li><a href="/about" class="text-white hover-orange text-decoration-none">About Us</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <h4 class="fw-semibold h6 mb-4">Support</h4>
+                <ul class="list-unstyled custom-list-spacing">
+                    <li><a href="/contact" class="text-white hover-orange text-decoration-none">Contact Us</a></li>
+                    <li><a href="#" class="text-white hover-orange text-decoration-none">FAQs</a></li>
+                    <li><a href="#" class="text-white hover-orange text-decoration-none">Shipping Policy</a></li>
+                    <li><a href="#" class="text-white hover-orange text-decoration-none">Return Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <h4 class="fw-semibold h6 mb-4">Contact Info</h4>
+                <div class="custom-list-spacing">
+                    <div class="d-flex align-items-start mb-2">
+                        <i class="fas fa-map-marker-alt text-orange me-3 mt-1"></i>
+                        <span class="text-white">Shop No. 15, Main Market, New Delhi, India</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-phone-alt text-orange me-3"></i>
+                        <span class="text-white">+91 98765 43210</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-envelope text-orange me-3"></i>
+                        <span class="text-white">info@arihantmobileshop.com</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-clock text-orange me-3"></i>
+                        <span class="text-white">Mon-Sat: 10AM - 8PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="border-secondary mt-5 mb-4">
+        <div class="text-center">
+    <p class="text-white small mb-0">
+        &copy; 2024 Arihant Mobile Shop. All rights reserved.  
+        <span class="d-block mt-1">Developed by <strong>A2Z IT Hub</strong></span>
+    </p>
+</div>
+
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) { 
+                menu.classList.toggle('d-none'); 
+            }
+        }
+
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in'); 
+                    }
+                });
+            }, observerOptions);
+
+            
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        
+        const currentPage = window.location.pathname.split("/").pop();
+
+        
+        document.querySelectorAll(".nav-link").forEach(link => {
+            if (link.getAttribute("href") === currentPage) {
+                link.classList.add("active"); 
+                link.setAttribute("aria-current", "page");
+            }
+        });
+
+
+        document.querySelectorAll("#navbarNav a").forEach(link => { 
+            if (link.getAttribute("href").includes(currentPage)) { 
+                link.classList.add("active-mobile-link"); 
+            }
+        });
+
+        
+        const images = [
+            "https://i.pinimg.com/736x/d5/1b/0d/d51b0d8826063f245dc38e9ff6c5c263.jpg",
+            "https://i.pinimg.com/originals/ae/c6/8d/aec68d4fcff71b5cf982eef2ee5bb2ae.jpg",
+            "https://i.pinimg.com/originals/84/b6/1e/84b61e1e3d9e307ebf89f4b2ce7763c2.jpg",
+            "https://i.pinimg.com/736x/f0/d0/8d/f0d08d9645f79070f997de9f738e03db.jpg"
+        ];
+
+        let current = 0;
+        const sliderImage = document.getElementById("sliderImage");
+
+        function showSlide(index) {
+            if (!sliderImage) return; 
+
+            if (index < 0) index = images.length - 1;
+            if (index >= images.length) index = 0;
+            current = index;
+            sliderImage.src = images[current];
+        }
+
+        function nextSlide() {
+            showSlide(current + 1);
+        }
+
+        function prevSlide() {
+            showSlide(current - 1);
+        }
+
+        
+        if (sliderImage) {
+            setInterval(() => nextSlide(), 5000);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            showCategory('all');
+
+            
+            document.querySelector('.category-btn.btn-orange').classList.add('active');
+        });
+
+        function showCategory(category) {
+            const allCategories = document.querySelectorAll('.product-category');
+            allCategories.forEach(cat => {
+                cat.classList.remove('active');
+            });
+
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            categoryButtons.forEach(btn => {
+                btn.classList.remove('active', 'btn-orange');
+                btn.classList.add('btn-outline');
+            });
+
+            if (category === 'all') {
+                allCategories.forEach(cat => {
+                    cat.classList.add('active');
+                });
+                document.querySelector('.category-btn[onclick="showCategory(\'all\')"]').classList.remove('btn-outline');
+                document.querySelector('.category-btn[onclick="showCategory(\'all\')"]').classList.add('active', 'btn-orange');
+            } else {
+                document.getElementById(category).classList.add('active');
+                document.querySelector(`.category-btn[onclick="showCategory('${category}')"]`).classList.remove('btn-outline');
+                document.querySelector(`.category-btn[onclick="showCategory('${category}')"]`).classList.add('active', 'btn-orange');
+            }
+        }
+
+        function inquireProduct(productName) {
+            alert(`You've expressed interest in: ${productName}. Please visit our store or contact us for more details!`);
+            
+        }
+
+        
+        function handleContactForm(event) {
+            event.preventDefault(); 
+            alert('Message sent! We will get back to you soon.');
+            
+        }
+
+    const navbarLoginBtn = document.getElementById('navbarLoginBtn'); 
+    const loginPopup = document.getElementById('loginPopup');
+    const closeBtn = document.getElementById('closeLogin');
+    const loginForm = document.getElementById('loginForm');
+    const signInForm = document.getElementById('signInForm');
+    const switchToSignInLink = document.getElementById('switchToSignIn');
+    const switchToLoginLink = document.getElementById('switchToLogin');
+    function showPopup(formToShow) {
+        loginForm.classList.add('hidden');
+        signInForm.classList.add('hidden');
+        formToShow.classList.remove('hidden');
+        loginPopup.style.display = 'flex'; 
+        document.body.style.overflow = 'hidden'; 
+    }
+    function hidePopup() {
+        loginPopup.style.display = 'none';
+        document.body.style.overflow = 'auto'; 
+    }
+    navbarLoginBtn.addEventListener('click', (e) => {
+        e.preventDefault(); 
+        showPopup(loginForm); 
+    });
+    closeBtn.addEventListener('click', () => {
+        hidePopup();
+    });
+    switchToSignInLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPopup(signInForm); 
+    });
+    switchToLoginLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPopup(loginForm); 
+    });
+    window.addEventListener('click', function(event) {
+        if (event.target === loginPopup) {
+            hidePopup();
+        }
+    });
+
+</script>
+
+
+    
+</body>
+</html>

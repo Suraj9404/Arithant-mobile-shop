@@ -1,0 +1,16 @@
+<%- include('navbar') %>
+
+<div class="container mt-4">
+    <div class="card p-4">
+        <h2>Edit Mission</h2>
+        <form action="/admin/update_mission" method="POST">
+            <div class="form-group">
+                <textarea name="content" class="form-control" rows="5"><%= mission.content %></textarea>
+            </div>
+            <button type="submit" class="btn btn-success mt-3">Save Changes</button>
+            <a href="/admin/mission" class="btn btn-secondary mt-3">Cancel</a>
+        </form>
+    </div>
+</div>
+
+<%- include('footer') %>

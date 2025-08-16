@@ -1,0 +1,51 @@
+<%- include('navbar') %>
+
+<section class="p-5" style="background-color: #f8f9fa; min-height: 80vh;">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold text-primary display-4">
+                👋 Welcome, 
+            </h1>
+            <p class="text-muted fs-5">You are now in your admin dashboard</p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 text-center p-4 bg-white rounded-4">
+                    <div class="fs-1 text-success mb-3">📦</div>
+                    <h5 class="fw-bold">Total Products</h5>
+                    <p class="fs-4 fw-bold text-dark"><%= productCount %></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 text-center p-4 bg-white rounded-4">
+                    <div class="fs-1 text-info mb-3">🛠</div>
+                    <h5 class="fw-bold">Services</h5>
+                    <p class="fs-4 fw-bold text-dark"><%= serviceCount %></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 text-center p-4 bg-white rounded-4">
+                    <div class="fs-1 text-warning mb-3">👥</div>
+                    <h5 class="fw-bold">Team Members</h5>
+                    <p class="fs-4 fw-bold text-dark"><%= teamCount %></p>
+                </div>
+            </div>
+         
+        </div>
+
+        <!-- Quick Links -->
+        <div class="mt-5">
+            <h3 class="fw-bold mb-4 text-secondary">Quick Actions</h3>
+            <div class="d-flex flex-wrap gap-3">
+                <a href="/admin/products" class="btn btn-primary px-4 py-2 rounded-pill shadow-sm">📦 Manage Products</a>
+                <a href="/admin/services" class="btn btn-success px-4 py-2 rounded-pill shadow-sm">🛠 Manage Services</a>
+                <a href="/admin/team" class="btn btn-warning px-4 py-2 rounded-pill shadow-sm">👥 Manage Team</a>
+                <a href="/admin/business_info" class="btn btn-info px-4 py-2 rounded-pill shadow-sm">🏪 Business Info</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('footer') %>

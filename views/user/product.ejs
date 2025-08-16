@@ -1,0 +1,147 @@
+   <%-include('navbar')%>
+
+<section id="products" class="product-stats-section">
+    <div class="container mx-auto px-4 text-center mt-5">
+        <h2 class="product-stats-title text-white section-title animate-fade-in">Our Products</h2>
+        <p class="product-stats-subtitle animate-fade-in delay-100">Discover our premium collection</p>
+    </div>
+</section>
+
+<section class="py-5" style="background-color: var(--background-color);">
+    <div class="container px-4">
+
+        <!-- Category Buttons -->
+        <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
+            <button onclick="showCategory('all')" class="category-btn btn-orange active">All Products</button>
+            <button onclick="showCategory('Mobile')" class="category-btn btn-outline">Smartphones</button>
+            <button onclick="showCategory('Watches')" class="category-btn btn-outline">Watches</button>
+            <button onclick="showCategory('Headphones')" class="category-btn btn-outline">Headphones</button>
+        </div>
+
+        <!-- All Products -->
+        <div id="all" class="product-category active">
+            <h3 class="product-category-heading"><i class="fas fa-store"></i> All Products</h3>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+                <% allProducts.forEach(function(p){ %>
+                <div class="col">
+                    <div class="product-card animate-fade-in delay-100">
+                        <div class="product-image">
+                            <img src="/uploads/<%= p.image %>" alt="<%= p.name %>">
+                        </div>
+                        <h4 class="mb-2"><%= p.name %></h4>
+                        <p class="mb-3"><%= p.description %></p>
+                        <div class="mt-auto">
+                            <a href="/product_details/<%= p.id %>"><button class="btn-orange">View More</button></a>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+
+        <!-- Mobile -->
+        <div id="Mobile" class="product-category">
+            <h3 class="product-category-heading"><i class="fas fa-mobile-alt"></i> Premium Smartphones</h3>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+                <% mobiles.forEach(function(p){ %>
+                <div class="col">
+                    <div class="product-card animate-fade-in delay-100">
+                        <div class="product-image">
+                            <img src="/uploads/<%= p.image %>" alt="<%= p.name %>">
+                        </div>
+                        <h4 class="mb-2"><%= p.name %></h4>
+                        <p class="mb-3"><%= p.description %></p>
+                        <div class="mt-auto">
+                            <a href="/product_details/<%= p.id %>"><button class="btn-orange">View More</button></a>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+
+        <!-- Watches -->
+        <div id="Watches" class="product-category">
+            <h3 class="product-category-heading"><i class="fas fa-clock"></i> Premium Watches</h3>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+                <% watches.forEach(function(p){ %>
+                <div class="col">
+                    <div class="product-card animate-fade-in delay-100">
+                        <div class="product-image">
+                            <img src="/uploads/<%= p.image %>" alt="<%= p.name %>">
+                        </div>
+                        <h4 class="mb-2"><%= p.name %></h4>
+                        <p class="mb-3"><%= p.description %></p>
+                        <div class="mt-auto">
+                            <a href="/product_details/<%= p.id %>"><button class="btn-orange">View More</button></a>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+
+        <!-- Headphones -->
+        <div id="Headphones" class="product-category">
+            <h3 class="product-category-heading"><i class="fas fa-headphones"></i> Premium Headphones</h3>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+                <% headphones.forEach(function(p){ %>
+                <div class="col">
+                    <div class="product-card animate-fade-in delay-100">
+                        <div class="product-image">
+                            <img src="/uploads/<%= p.image %>" alt="<%= p.name %>" class="img-fluid">
+                        </div>
+                        <h4 class="mb-2"><%= p.name %></h4>
+                        <p class="mb-3"><%= p.description %></p>
+                        <div class="mt-auto">
+                            <a href="/product_details/<%= p.id %>"><button class="btn-orange">View More</button></a>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<hr class="my-5" style="border-top: 1px solid var(--primary-color);">
+
+<section id="reviews" class="py-5" style="background-color: var(--background-color);">
+    <div class="container px-4">
+        <h2 class="h3 fw-bold text-center mb-5 section-title">Customer Reviews</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <% for (var i = 0; i < reviews.length && i < 3; i++) { 
+                var r = reviews[i]; %>
+                <div class="col">
+                    <div class="testimonial-card p-4 rounded-3 shadow-sm">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="review-card-avatar">
+                                <%= r.name.charAt(0).toUpperCase() %>
+                            </div>
+                            <div>
+                                <h4 class="fw-bold mb-0"><%= r.name %></h4>
+                                <div class="d-flex stars">
+                                    <% for (var s = 0; s < r.rating; s++) { %>
+                                        <i class="fas fa-star"></i>
+                                    <% } %>
+                                    <% for (var s = r.rating; s < 5; s++) { %>
+                                        <i class="far fa-star"></i>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mb-0">"<%= r.review %>"</p>
+                    </div>
+                </div>
+            <% } %>
+
+        </div>
+    </div>
+</section>
+x
+
+
+
+<%-include('footer')%>

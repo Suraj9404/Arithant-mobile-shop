@@ -1,0 +1,35 @@
+<%- include('navbar') %>
+<div class="container mt-4">
+    <h2>Edit Product</h2>
+    <form action="/admin/products_update/<%= product.id %>" method="post" enctype="multipart/form-data">
+        
+        <div class="mb-3">
+            <label>Product Name</label>
+            <input type="text" name="name" value="<%= product.name %>" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Price (₹)</label>
+            <input type="number" step="0.01" name="price" value="<%= product.price %>" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Current Image</label><br>
+            <% if(product.image) { %>
+                <img src="/uploads/<%= product.image %>" width="100" class="mb-2">
+            <% } else { %>
+                <p>No Image</p>
+            <% } %>
+            <input type="hidden" name="old_image" value="<%= product.image %>">
+        </div>
+
+        <div class="mb-3">
+            <label>Change Image</label>
+            <input type="file" name="image" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-success">Update Product</button>
+        <a href="/admin/products" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+<%- include('footer') %>

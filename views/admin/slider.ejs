@@ -1,0 +1,150 @@
+
+<%- include('navbar') %> 
+
+<div class="main-content px-4 py-3">
+  <section class="slider-container" id="sliderSection">
+    <div class="slider" id="slider">
+      <% for(var i = 0; i < images.length; i++) { %>
+        <div class="slide">
+          <img src="/images/<%= images[i].image %>" alt="Slide <%= i+1 %>">
+
+          <div class="slide-content">
+            <h2><%= images[i].heading %></h2>
+            <p><%= images[i].subheading %></p>
+
+            <a href="<%= images[i].button_url %>">
+              <button class="main-btn"><%= images[i].button_text %></button>
+            </a>
+
+            <a href="/admin/edit_slider/<%= images[i].id %>">
+              <button class="update-btn">Update</button>
+            </a>
+          </div>
+        </div>
+      <% } %>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button class="nav-btn prev" onclick="prevSlide()">&#10094;</button>
+    <button class="nav-btn next" onclick="nextSlide()">&#10095;</button>
+  </section>
+</div>
+
+<style>
+  .main-content {
+  width: 100%;    /* adjust according to your topbar height */
+  }
+
+  .slider-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+  }
+
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .slide img {
+    width: 80%;
+    max-height: 400px;
+    border-radius: 10px;
+  }
+
+  .slide-content {
+    margin-top: 15px;
+  }
+
+  .slide-content h2 {
+    color: #333;
+  }
+
+  .slide-content p {
+    color: #555;
+  }
+
+  .main-btn, .update-btn {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .main-btn {
+    background-color: #28a745;
+    color: white;
+  }
+
+  .update-btn {
+    background-color: #ffc107;
+    color: black;
+  }
+
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .prev {
+    left: 10px;
+  }
+
+  .next {
+    right: 10px;
+  }
+
+  .nav-btn:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+</style>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".slide");
+  const slider = document.getElementById("slider");
+
+  function showSlide(index) {
+    if (index < 0) {
+      currentSlide = slides.length - 1;
+    } else if (index >= slides.length) {
+      currentSlide = 0;
+    } else {
+      currentSlide = index;
+    }
+    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+  }
+
+  function nextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  setInterval(nextSlide, 5000);
+</script>
+<%- include('footer') %> 

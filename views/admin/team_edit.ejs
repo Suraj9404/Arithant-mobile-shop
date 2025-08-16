@@ -1,0 +1,33 @@
+<%- include('navbar') %>
+<div class="container mt-4">
+    <h2>Edit Team Member</h2>
+    <form action="/admin/team/update/<%= member.id %>" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="old_image" value="<%= member.image %>">
+
+        <div class="mb-3">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" value="<%= member.name %>" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Position</label>
+            <input type="text" name="position" class="form-control" value="<%= member.position %>" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Description</label>
+            <textarea name="description" class="form-control" rows="4"><%= member.description %></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>Image</label>
+            <input type="file" name="image" class="form-control">
+            <% if (member.image) { %>
+                <img src="/images/<%= member.image %>" style="width:60px;height:60px;border-radius:50%;margin-top:10px;">
+            <% } %>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+<%- include('footer') %>

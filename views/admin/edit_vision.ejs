@@ -1,0 +1,14 @@
+<%- include('navbar') %>
+
+<div class="container mt-4">
+    <h2>Edit Our Vision</h2>
+    <form action="/admin/update_vision" method="POST">
+        <input type="hidden" name="id" value="<%= vision.id %>">
+        <div class="form-group">
+            <textarea name="content" class="form-control" rows="5" required><%= vision.content %></textarea>
+        </div>
+        <button type="submit" class="btn btn-success mt-3">Update Vision</button>
+    </form>
+</div>
+
+<%- include('footer') %>

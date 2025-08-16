@@ -1,0 +1,82 @@
+<%- include('navbar') %>
+
+<div class="container py-5">
+    <h3 class="fw-bold text-primary mb-4">Edit Business Info</h3>
+    <form method="POST" action="/admin/contact_info ">
+     <input type="hidden" name="id" value="<%= info.id %>">
+        <div class="mb-3">
+            <label class="form-label">Shop Name</label>
+            <input type="text" name="shop_name" value="<%= info.shop_name %>" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Address Line 1</label>
+            <input type="text" name="shop_address_line1" value="<%= info.shop_address_line1 %>" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Address Line 2</label>
+            <input type="text" name="shop_address_line2" value="<%= info.shop_address_line2 %>" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">City</label>
+            <input type="text" name="city" value="<%= info.city %>" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">State</label>
+            <input type="text" name="state" value="<%= info.state %>" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Country</label>
+            <input type="text" name="country" value="<%= info.country %>" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Pincode</label>
+            <input type="text" name="pincode" value="<%= info.pincode %>" class="form-control">
+        </div>
+
+        <!-- बाकीचे phone, email, hours fields -->
+        <div class="mb-3">
+            <label>Main Phone</label>
+            <input type="text" name="phone_main" value="<%= info.phone_main %>" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Emergency Phone</label>
+            <input type="text" name="phone_emergency" value="<%= info.phone_emergency %>" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Email (General)</label>
+            <input type="email" name="email_general" value="<%= info.email_general %>" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Email (Support)</label>
+            <input type="email" name="email_support" value="<%= info.email_support %>" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Weekday Hours</label>
+            <input type="text" name="hours_weekdays" value="<%= info.hours_weekdays %>" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Sunday Hours</label>
+            <input type="text" name="hours_sunday" value="<%= info.hours_sunday %>" class="form-control">
+        </div>
+
+        <div class="mb-3 form-check">
+            <input type="checkbox" name="open_holidays" class="form-check-input" <%= info.open_holidays ? 'checked' : '' %> >
+            <label class="form-check-label">Open on Holidays</label>
+        </div>
+
+        <button type="submit" class="btn btn-success">Save Changes</button>
+    </form>
+</div>
+
+<%- include('footer') %>

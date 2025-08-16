@@ -1,0 +1,25 @@
+<%- include('navbar') %>
+<div class="container mt-4">
+    <h2 class="mb-4">Our Journey</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Year & Title</th>
+                <th>Description</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let i = 0; i < data.length; i++) { %>
+                <tr>
+                    <td><%= data[i].year_title %></td>
+                    <td><%= data[i].description %></td>
+                    <td>
+                        <a href="/admin/our_journey/edit/<%= data[i].id %>" class="btn btn-warning btn-sm">Edit</a>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+<%- include('footer') %>

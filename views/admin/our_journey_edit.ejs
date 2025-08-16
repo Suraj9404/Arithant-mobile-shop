@@ -1,0 +1,16 @@
+<%- include('navbar') %>
+<div class="container mt-4">
+    <h2>Edit Our Journey</h2>
+    <form method="POST" action="/admin/our_journey/update/<%= record.id %>">
+        <div class="mb-3">
+            <label>Year & Title</label>
+            <input type="text" name="year_title" value="<%= record.year_title %>" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Description</label>
+            <textarea name="description" class="form-control" rows="4" required><%= record.description %></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+<%- include('footer') %>

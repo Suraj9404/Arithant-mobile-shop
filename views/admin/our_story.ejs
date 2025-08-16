@@ -1,0 +1,102 @@
+<%- include('navbar') %>
+
+<div class="admin-story-container">
+    <div class="story-box">
+        <h2>Our Story</h2>
+
+        <% for (var i = 0; i < info.length; i++) { %>
+            <p><%-info[i].content%></p>
+        <% } %>
+
+      <a href="/admin/edit_our_story"><button class="btn btn-primary" onclick="location.href='/admin/edit_our_story'">
+            Edit Our Story
+        </button></a>
+    </div>
+</div>
+
+<%- include('footer') %>
+
+
+
+<style>
+    .admin-story-container {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        flex-wrap: wrap;
+    }
+
+    /* Story Section */
+    .story-box {
+        flex: 0 0 100%;
+        max-width: 100%;
+        background: white;
+        padding: 25px;
+        width: 500px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .story-box h2 {
+        margin-bottom: 15px;
+        font-weight: bold;
+        color: #222;
+    }
+
+    .story-box p {
+        color: #555;
+        line-height: 1.6;
+    }
+
+    /* Stats Section */
+    .stats-box {
+        flex: 0 0 100%;
+        max-width: 100%;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .stats-title {
+        font-weight: bold;
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+
+    .stats-cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+
+    .stat-card {
+        background: #007BFF;
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .stat-card h3 {
+        margin: 0;
+        font-size: 20px;
+    }
+
+    .stat-card p {
+        margin: 5px 0 0;
+        font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+        .story-box, .stats-box {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .stats-cards {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>

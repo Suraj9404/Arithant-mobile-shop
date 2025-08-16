@@ -1,0 +1,49 @@
+<%- include('navbar') %>
+
+<div class="container mt-5">
+  <h2 class="mb-4">Edit Slider</h2>
+
+  <form action="/admin/update_slider/<%=info.id%>" method="POST" enctype="multipart/form-data">
+    
+    <!-- Existing Image Preview -->
+    <div class="mb-3">
+      <label class="form-label">Current Image:</label><br>
+      <img src="/images/<%= info.image %>" alt="Current Image" style="width:300px; border-radius:10px;">
+    </div>
+
+    <!-- Upload New Image -->
+    <div class="mb-3">
+      <label class="form-label">Change Image:</label>
+      <input type="file" class="form-control" name="image">
+    </div>
+
+    <!-- Heading -->
+    <div class="mb-3">
+      <label class="form-label">Heading:</label>
+      <input type="text" class="form-control" name="heading" value="<%= info.heading %>" required>
+    </div>
+
+    <!-- Subheading -->
+    <div class="mb-3">
+      <label class="form-label">Subheading:</label>
+      <input type="text" class="form-control" name="subheading" value="<%= info.subheading %>" required>
+    </div>
+
+    <!-- Button Text -->
+    <div class="mb-3">
+      <label class="form-label">Button Text:</label>
+      <input type="text" class="form-control" name="button_text" value="<%= info.button_text %>" required>
+    </div>
+
+    <!-- Button URL -->
+    <div class="mb-3">
+      <label class="form-label">Button URL:</label>
+      <input type="url" class="form-control" name="button_url" value="<%= info.button_url %>" required>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="btn btn-success">Update Slider</button>
+  </form>
+</div>
+
+<%- include('footer') %>

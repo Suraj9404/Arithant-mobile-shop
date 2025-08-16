@@ -1,0 +1,33 @@
+<%- include('navbar') %>
+<div class="container mt-4">
+    <h2>Team Members</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% team.forEach(function(member) { %>
+                <tr>
+                    <td>
+                        <% if (member.image) { %>
+                            <img src="/images/<%= member.image %>" style="width:60px;height:60px;border-radius:50%;">
+                        <% } %>
+                    </td>
+                    <td><%= member.name %></td>
+                    <td><%= member.position %></td>
+                    <td><%= member.description %></td>
+                    <td>
+                        <a href="/admin/team/edit/<%= member.id %>" class="btn btn-warning btn-sm">Edit</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<%- include('footer') %>

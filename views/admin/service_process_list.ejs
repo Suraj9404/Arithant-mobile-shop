@@ -1,0 +1,27 @@
+<%- include('navbar') %>
+<div class="container mt-4">
+    <h2>Our Service Process - Admin</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Step No</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% steps.forEach(s => { %>
+                <tr>
+                    <td><%= s.step_no %></td>
+                    <td><%= s.title %></td>
+                    <td><%= s.description %></td>
+                    <td>
+                        <a href="/admin/service_process_edit/<%= s.id %>" class="btn btn-warning btn-sm">Edit</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<%- include('footer') %>

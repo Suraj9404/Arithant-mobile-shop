@@ -1,0 +1,28 @@
+<%- include('navbar') %>
+
+<section class="container mt-5">
+  <h2>Edit Service</h2>
+
+  <!-- Image Preview -->
+  <div class="mb-3 text-center">
+    <img src="<%= services.image %>" alt="Current Image" style="max-width: 200px; border: 2px solid #007bff; border-radius: 10px; margin-bottom: 20px;" />
+  </div>
+
+  <form action="/admin/update_service/<%= services.id %>" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label>New Image</label>
+      <input type="file" name="image" class="form-control" required/>
+    </div>
+    <div class="mb-3">
+      <label>Title:</label>
+      <input type="text" name="title" class="form-control" value="<%= services.title %>" required />
+    </div>
+    <div class="mb-3">
+      <label>Description:</label>
+      <textarea name="description" class="form-control" required><%= services.description %></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Update</button>
+  </form>
+</section>
+
+<%- include('footer') %>

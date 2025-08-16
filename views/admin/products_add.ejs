@@ -1,0 +1,23 @@
+<%- include('navbar') %>
+<div class="container mt-4">
+    <h2>Add Product</h2>
+
+    <form action="/admin/products_add" method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Product Name" class="form-control mb-2" required>
+        <input type="number" name="price" placeholder="Price" class="form-control mb-2" required>
+        <textarea name="description" placeholder="Description" class="form-control mb-2" required></textarea>
+
+        <!-- Category Select -->
+        <select name="category" class="form-control mb-2" required>
+            <option value="">Select Category</option>
+            <option value="Mobile">Mobile</option>
+            <option value="Watches">Watches</option>
+            <option value="Headphones">Headphones</option>
+        </select>
+
+        <input type="file" name="image" class="form-control mb-2" required>
+
+        <button type="submit" class="btn btn-success">Add Product</button>
+    </form>
+</div>
+<%- include('footer') %>

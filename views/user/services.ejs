@@ -1,0 +1,107 @@
+<%-include('navbar.ejs')%>
+
+    <section id="products" class="pt-5 bg-dark text-white px-4 py-5 ">
+        <div class="container mx-auto px-4 text-center mt-5">
+            <h2 class="display-4 fw-bold text-white mb-4 section-title animate-fade-in">Our Services</h2>
+            <p class="lead text-secondary max-w-2xl mx-auto animate-fade-in delay-100 ">Professional mobile repair and support services with a commitment to quality and customer satisfaction</p>
+        </div>
+    </section>
+
+
+
+<section class="py-5 bg-light">
+    <div class="container mx-auto px-4">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="h3 fw-bold text-primary text-center section-title">🔧 Repair Services</h3>
+            <button class="btn btn-primary" onclick="window.print()">🖨 Print</button>
+        </div>
+
+        <div class="row g-4 mb-5">
+            <% services.forEach(service => { %>
+                <div class="col-md-6 col-lg-4">
+                    <div class="rounded-lg p-4 shadow-sm service-card custom-card-bg h-100">
+                        <div class="text-center mb-3"><%= service.icon || '📱' %></div>
+                        <h4 class="h5 fw-semibold text-white mb-3"><%= service.title %></h4>
+                        <p class="text-secondary mb-3"><%= service.description %></p>
+                        <ul class="text-sm text-secondary space-y-2 mb-4 list-unstyled">
+                            <li>✓ <%= service.topic1 %></li>
+                            <li>✓ <%= service.topic2 %></li>
+                            <li>✓ <%= service.topic3 %></li>
+                            <li>✓ <%= service.topic4 %></li>
+                        </ul>
+                        <div class="text-center mt-auto">
+                            <span class="fs-4 fw-bold discount-badge">Starting ₹<%= service.price %></span>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <section class="py-5 bg-light border-top border-bottom border-primary">
+       <div class="container mx-auto px-4">
+            <h3 class="h3 fw-bold text-primary text-center mb-5 section-title">Our Service Process</h3>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="text-center p-4 rounded-lg border border-primary shadow-sm custom-card-bg h-100">
+                        <div class="mb-3">
+                            <span class="fs-4">1️⃣</span>
+                        </div>
+                        <h4 class="fw-semibold mb-2 text-white">Bring Your Phone</h4>
+                        <p class="text-secondary text-sm">Visit our shop with your device and describe the issue</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="text-center p-4 rounded-lg border border-primary shadow-sm custom-card-bg h-100">
+                        <div class="mb-3">
+                            <span class="fs-4">2️⃣</span>
+                        </div>
+                        <h4 class="fw-semibold mb-2 text-white">Free Diagnosis</h4>
+                        <p class="text-secondary text-sm">Our experts will examine and diagnose the problem</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="text-center p-4 rounded-lg border border-primary shadow-sm custom-card-bg h-100">
+                        <div class="mb-3">
+                            <span class="fs-4">3️⃣</span>
+                        </div>
+                        <h4 class="fw-semibold mb-2 text-white">Get Quote</h4>
+                        <p class="text-secondary text-sm">Receive transparent pricing and repair timeline</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="text-center p-4 rounded-lg border border-primary shadow-sm custom-card-bg h-100">
+                        <div class="mb-3">
+                            <span class="fs-4">4️⃣</span>
+                        </div>
+                        <h4 class="fw-semibold mb-2 text-white">Quick Repair</h4>
+                        <p class="text-secondary text-sm">Professional repair with warranty included</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-dark">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="h3 fw-bold text-white mb-4">Need Repair Service?</h3>
+            <p class="lead mb-4 text-secondary">Visit our shop for expert diagnosis and quick repair</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="/contact" class="btn btn-primary px-4 py-2 fw-semibold custom-cta-orange text-white">
+                    Visit Our Shop
+                </a>
+               <a  href="/contact"> <button  class="btn btn-outline-primary text-white px-4 py-2 fw-semibold custom-border-button">
+                    Call Now
+                </button></a>
+            </div>
+        </div>
+    </section>
+<%-include('footer')%>

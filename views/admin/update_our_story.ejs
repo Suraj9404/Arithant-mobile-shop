@@ -1,0 +1,27 @@
+<%- include('navbar') %>
+
+<div class="container mt-4">
+    <h2>Edit Our Story</h2>
+    <form action="/admin/update_our_story" method="POST">
+        
+        <div class="mb-3">
+            <label>Paragraph 1</label>
+            <textarea name="content1" class="form-control" rows="4"><%- storyParts[0].content %></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>Paragraph 2</label>
+            <textarea name="content2" class="form-control" rows="4"><%- storyParts[1].content %></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>Paragraph 3</label>
+            <textarea name="content3" class="form-control" rows="4"><%- storyParts[2].content %></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a href="/admin/Our_Story" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
+<%- include('footer') %>

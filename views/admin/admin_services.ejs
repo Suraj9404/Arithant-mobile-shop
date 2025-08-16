@@ -1,0 +1,49 @@
+<%- include('navbar') %> <!-- Navbar include -->
+
+<div class="container mt-4">
+    <h2 class="mb-3">Repair Services - Admin</h2>
+
+    <!-- Print Button -->
+    <button class="btn btn-primary mb-3" onclick="window.print()">🖨 Print</button>
+
+    <!-- Services Table -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Heading</th>
+                    <th>Description</th>
+                    <th>Topics</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (services.length > 0) { %>
+                    <% services.forEach(s => { %>
+                        <tr>
+                            <td><%= s.title %></td>
+                            <td><%= s.description %></td>
+                            <td>
+                                ✓ <%= s.topic1 %><br>
+                                ✓ <%= s.topic2 %><br>
+                                ✓ <%= s.topic3 %><br>
+                                ✓ <%= s.topic4 %>
+                            </td>
+                            <td>₹<%= s.price %></td>
+                            <td>
+                                <a href="/admin/edit_services/<%= s.id %>" class="btn btn-warning btn-sm">✏ Edit</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="5" class="text-center">No services found</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<%- include('footer') %> <!-- Footer include -->

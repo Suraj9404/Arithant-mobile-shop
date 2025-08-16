@@ -1,0 +1,172 @@
+
+<%- include('navbar.ejs') %>
+
+
+<section class="position-relative" > <div id="mainSlider" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+   <%for(var i=0;i<slider.length;i++){%>
+        <%if(i === 0) { %> 
+      <div class="carousel-item active position-relative">
+        <% } else { %>
+      <div class="carousel-item position-relative"> 
+        <% } %>
+        <img src="/images/<%= slider[i].image %>" class="d-block w-100 object-fit-cover" style="height: 720px;" alt="Slide <%= i+1 %>">
+        <div class="carousel-item-overlay">
+          <h2 class="carousel-title"><%=slider[i].heading%></h2>
+          <p class="carousel-text"><%=slider[i].subheading%></p>
+           <a href="/product" class="btn btn-custom-orange carousel-btn"><%=slider[i].button_text%></a> 
+        </div>
+      </div>
+      <%}%> 
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
+  </div>
+</section>
+
+<section class="section-spacing">
+  <div class="container">
+    <h2 class="text-center mb-5 section-title">
+      Why Choose <span style="color: var(--primary-color);">Arihant</span> Mobile Shop?
+    </h2>
+    
+    <div class="row g-4">
+      <% for (let i = 0; i < features.length; i++) { %>
+        <div class="col-md-4">
+          <div class="why-card text-center">
+            <div class="why-icon">
+              <!-- Fixed icon instead of dynamic image -->
+              <i class="fas fa-check-circle" style="font-size: 40px; color: var(--primary-color);"></i>
+            </div>
+            <h3 class="why-title"><%= features[i].title %></h3>
+            <p class="why-desc"><%= features[i].description %></p>
+          </div>
+        </div>
+      <% } %>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<section class="section-spacing">
+  <div class="container">
+    <h2 class="text-center mb-5 section-title">
+      Our <span style="color: var(--primary-color);">Services</span>
+    </h2>
+
+    <div class="row g-4">
+      <% for (let i = 0; i < services.length && i < 4; i++) { %>
+        <div class="col-md-6">
+          <div class="card-hover d-flex align-items-start service-card">
+            <div class="icon-box">
+              <% if (services[i].title.toLowerCase().includes('mobile')) { %>
+                <i class="fas fa-check-circle" style="font-size: 40px; color: black;"></i>
+              <% } else if (services[i].title.toLowerCase().includes('battery')) { %>
+                <i class="fas fa-battery-full" style="font-size: 40px; color: var(--primary-color);"></i>
+              <% } else if (services[i].title.toLowerCase().includes('laptop')) { %>
+                <i class="fas fa-laptop" style="font-size: 40px; color: var(--primary-color);"></i>
+              <% } else if (services[i].title.toLowerCase().includes('headphone')) { %>
+                <i class="fas fa-headphones" style="font-size: 40px; color: var(--primary-color);"></i>
+              <% } else { %>
+                <i class="fas fa-tools" style="font-size: 40px; color: var(--primary-color);"></i>
+              <% } %>
+            </div>
+            <div>
+              <h3><%= services[i].title %></h3>
+              <p><%= services[i].description %></p>
+            </div>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="section-spacing testimonials-section">
+  <div class="container">
+    <h2 class="text-center mb-5 section-title">
+      Customer <span style="color: var(--primary-color);">Testimonials</span>
+    </h2>
+
+    <div class="row g-4">
+      <% for (var i = 0; i < reviews.length && i < 3; i++) { 
+           var r = reviews[i]; %>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-3">
+              <div class="user-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-0"><%= r.name %></h4>
+                <div class="d-flex stars">
+                  <% for (var s = 0; s < r.rating; s++) { %>
+                    <i class="fas fa-star"></i>
+                  <% } %>
+                  <% for (var s = r.rating; s < 5; s++) { %>
+                    <i class="far fa-star"></i>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+            <p class="italic">"<%= r.review %>"</p>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="py-5" style="background-color: var(--background-color);"> <div class="container">
+    <div class="cta-banner">
+      <div class="row align-items-center">
+        <div class="col-md-8 mb-4 mb-md-0">
+          <h2 class="mb-3">Ready to Upgrade Your Device?</h2>
+          <p class="lead mb-4">Visit our store or shop online to get the best deals on premium mobile devices.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="/contact" class="btn btn-custom-orange">
+              <i class="fas fa-map-marker-alt me-2"></i> Find Our Store
+            </a>
+            <a href="/product" class="btn btn-custom-outline">
+              view more
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center position-relative">
+          <div class="gradient-blob"></div>
+          <img src="/uploads/img.png" alt="Mobile Shop" class="img-fluid mobile-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%-include('footer')%>

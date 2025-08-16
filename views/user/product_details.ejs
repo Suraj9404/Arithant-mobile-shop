@@ -1,0 +1,110 @@
+<%- include('navbar') %>  
+
+<style>
+/* Product Image Box */
+.product-img-box {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #000;
+    margin-bottom: 15px;
+}
+.product-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Review Section */
+.review-wrapper {
+    background: var(--background-color);
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 40px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+.review-wrapper h4 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Rating Stars */
+.star {
+    color: gold;
+    font-size: 18px;
+}
+
+/* Single Review Card */
+.review-box {
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.review-box h5 {
+    margin: 0;
+    font-size: 16px;
+    color: var(--primary-color);
+}
+.review-box small {
+    color: gray;
+}
+</style>
+<br><br>
+
+<section class="py-5" style="background-color: var(--background-color);">
+    <div class="container">
+        <div class="row">
+            <!-- Product Image -->
+            <div class="col-md-6">
+                <div class="product-img-box">
+                    <img src="/uploads/<%= product.image %>" alt="<%= product.name %>">
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="col-md-6">
+                <h2 class="mb-3"><%= product.name %></h2>
+                <p class="mb-3"><%= product.description %></p>
+                <p><strong>Price:</strong> ₹<%= product.price %></p>
+                <a href="/product"><button class="btn-orange">Back to Products</button></a>
+            </div>
+        </div>
+
+        <!-- Review Form -->
+        <div class="review-wrapper">
+            <h4>Write a Review</h4>
+            <form action="/submit_review" method="POST">
+                <input type="hidden" name="product_id" value="<%= product.id %>">
+
+                <div class="mb-3">
+                    <label class="form-label">Your Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Your Review</label>
+                    <textarea name="review" class="form-control" rows="4" placeholder="Write your review here..." required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Rating</label>
+                    <select name="rating" class="form-control" required>
+                        <option value="">Select rating</option>
+                        <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
+                        <option value="4">⭐⭐⭐⭐ - Good</option>
+                        <option value="3">⭐⭐⭐ - Average</option>
+                        <option value="2">⭐⭐ - Poor</option>
+                        <option value="1">⭐ - Very Bad</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-orange">Submit Review</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<%- include('footer') %>

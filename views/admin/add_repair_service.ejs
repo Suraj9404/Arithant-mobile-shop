@@ -1,0 +1,49 @@
+<%- include('navbar') %>
+<div class="container mt-4">
+    <h2>Add Repair Service</h2>
+    <form method="POST" action="/admin/repair-services/add" class="card p-4">
+
+        <div class="mb-3">
+            <label>Service Title</label>
+            <input type="text" name="title" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Description</label>
+            <textarea name="description" class="form-control" required></textarea>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Topic 1</label>
+                <input type="text" name="topic1" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Topic 2</label>
+                <input type="text" name="topic2" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Topic 3</label>
+                <input type="text" name="topic3" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Topic 4</label>
+                <input type="text" name="topic4" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>Price (₹)</label>
+            <input type="number" name="price" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Icon (Emoji)</label>
+            <input type="text" name="icon" class="form-control" placeholder="📱, 🔋 etc.">
+        </div>
+
+        <button type="submit" class="btn btn-success">Add Service</button>
+        <a href="/admin/repair_services" class="btn btn-secondary">Back</a>
+    </form>
+</div>
+<%- include('footer') %>

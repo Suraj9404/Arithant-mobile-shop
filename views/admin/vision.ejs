@@ -1,0 +1,31 @@
+<%- include('navbar') %>
+
+<div class="admin-story-container">
+    <div class="story-box">
+        <h2>Our Vision</h2>
+        <p class="text-secondary text-center lh-lg">
+            <%= vision.content %>
+        </p>
+        <button class="btn btn-primary" onclick="location.href='/admin/edit_vision'">
+            Edit Vision
+        </button>
+    </div>
+</div>
+
+<%- include('footer') %>
+
+<style>
+.admin-story-container {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+}
+.story-box {
+    width: 80%;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: center;
+}
+</style>

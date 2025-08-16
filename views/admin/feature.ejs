@@ -1,0 +1,74 @@
+<%- include('navbar') %>
+
+<div class="features-container">
+  <% for (let i = 0; i < info.length; i++) { %>
+    <div class="feature-card">
+      <img src="/images/<%= info[i].image %>" alt="Feature Image" />
+      <h3><%= info[i].title %></h3>
+      <p><%= info[i].description %></p>
+      <a href="/admin/edit_feature/<%= info[i].id %>" class="update-btn">Update</a>
+    </div>
+  <% } %>
+</div>
+
+<style>
+  .features-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 40px;
+    padding: 40px 80px;
+    background-color: #f8f9fa;
+  }
+
+  .feature-card {
+    background-color: #ffffff;
+    border: 2px solid #dee2e6;
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    width: 330px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .feature-card img {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+  }
+
+  .feature-card h3 {
+    font-size: 20px;
+    color: #343a40;
+    margin-bottom: 12px;
+  }
+
+  .feature-card p {
+    font-size: 15px;
+    color: #6c757d;
+    margin-bottom: 18px;
+  }
+
+  .update-btn {
+    padding: 6px 14px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .update-btn:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<%- include('footer') %>

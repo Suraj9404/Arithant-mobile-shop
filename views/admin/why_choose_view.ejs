@@ -1,0 +1,43 @@
+<%- include('navbar') %>
+
+<div class="container mt-5">
+    <div class="why-choose-card shadow-lg p-4 rounded-4">
+        <h2 class="text-primary fw-bold mb-4 text-center">
+            Why <span class="text-dark">Choose Us</span>
+        </h2>
+
+        <div class="content-box text-center">
+            <h4 class="fw-semibold mb-3"><%= data.title %></h4>
+            <p class="text-secondary lh-lg"><%= data.description %></p>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="/admin/why_choose/edit/<%= data.id %>" class="btn btn-warning px-4 py-2 fw-semibold">
+                ✏ Edit
+            </a>
+        </div>
+    </div>
+</div>
+
+<%- include('footer') %>
+
+<style>
+    .why-choose-card {
+        background: #fff;
+        border: 1px solid #e3e6ea;
+        transition: all 0.3s ease-in-out;
+    }
+    .why-choose-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .content-box h4 {
+        color: #333;
+        font-size: 1.5rem;
+    }
+    .content-box p {
+        font-size: 1rem;
+        max-width: 700px;
+        margin: auto;
+    }
+</style>

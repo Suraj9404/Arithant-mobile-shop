@@ -1,0 +1,185 @@
+<%-include('navbar')%>
+
+
+    <section id="contact-hero" class="pt-5 bg-dark text-white px-4 py-5 ">
+        <div class="container text-center">
+            <h2 class="display-4 fw-bold text-white mb-4 section-title">Contact Us</h2>
+            <p class="lead text-secondary mx-auto max-w-2xl">Get in touch with our team for premium mobile solutions, expert repairs, and personalized service</p>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container px-4">
+    
+        <div class="row g-4 mb-5">
+            <!-- Visit Shop -->
+            <div class="col-md-6 col-lg-3">
+                <div class="custom-card-bg rounded-3 shadow-lg p-4 text-center card-hover contact-card h-100">
+                    <div class="text-primary fs-3 mb-3">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="h5 fw-semibold mb-3 text-white">Visit Our Shop</h3>
+                    <p class="text-secondary small mb-1"><%= info.shop_address_line1 %></p>
+                    <p class="text-secondary small mb-1"><%= info.shop_address_line2 %></p>
+                    <p class="text-secondary small">Pincode: <%= info.pincode %></p>
+                </div>
+            </div>
+
+            <!-- Call Us -->
+            <div class="col-md-6 col-lg-3">
+                <div class="custom-card-bg rounded-3 shadow-lg p-4 text-center card-hover contact-card h-100">
+                    <div class="text-primary fs-3 mb-3">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 class="h5 fw-semibold mb-3 text-white">Call Us</h3>
+                    <p class="text-white fw-semibold mb-1"><%= info.phone_main %></p>
+                    <p class="text-secondary small mb-2">Main Number</p>
+                    <p class="text-primary small fw-semibold">
+                        <i class="fas fa-bolt me-1"></i>Emergency: <%= info.phone_emergency %>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Email Us -->
+            <div class="col-md-6 col-lg-3">
+                <div class="custom-card-bg rounded-3 shadow-lg p-4 text-center card-hover contact-card h-100">
+                    <div class="text-primary fs-3 mb-3">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="h5 fw-semibold mb-3 text-white">Email Us</h3>
+                    <p class="text-primary mb-1"><%= info.email_general %></p>
+                    <p class="text-secondary small mb-3">General Inquiries</p>
+                    <p class="text-primary"><%= info.email_support %></p>
+                    <p class="text-secondary small mt-1">Technical Support</p>
+                </div>
+            </div>
+
+            <!-- Business Hours -->
+            <div class="col-md-6 col-lg-3">
+                <div class="custom-card-bg rounded-3 shadow-lg p-4 text-center card-hover contact-card h-100">
+                    <div class="text-primary fs-3 mb-3">
+                        <i class="far fa-clock"></i>
+                    </div>
+                    <h3 class="h5 fw-semibold mb-3 text-white">Business Hours</h3>
+                    <p class="text-secondary small mb-1"><strong>Mon - Sat:</strong> <%= info.hours_weekdays %></p>
+                    <p class="text-secondary small"><strong>Sunday:</strong> <%= info.hours_sunday %></p>
+                    <% if (info.open_holidays) { %>
+                        <p class="text-primary small mt-3 fw-semibold">
+                            <i class="fas fa-exclamation-circle me-1"></i>Open on public holidays
+                        </p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+
+
+
+            
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <div class="custom-card-bg rounded-3 shadow-xl p-4 p-md-5 h-100">
+                        <h3 class="h3 fw-bold text-white mb-4">Send Us a Message</h3>
+                        <form action="/add_custemer" method="post" class="row g-4">
+                            <div class="col-md-6">
+                                <label for="fullName" class="form-label text-secondary fw-semibold mb-2">Full Name <span class="text-danger">*</span></label>
+                                <input type="text" id="fullName" name="name" required class="form-control px-3 py-2 custom-form-control" placeholder="Your full name">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phoneNumber" class="form-label text-secondary fw-semibold mb-2">Phone Number <span class="text-danger">*</span></label>
+                                <input type="tel" id="phoneNumber" name="mobile" required class="form-control px-3 py-2 custom-form-control" placeholder="Your phone number">
+                            </div>
+                            <div class="col-12">
+                                <label for="emailAddress" class="form-label text-secondary fw-semibold mb-2">Email Address</label>
+                                <input type="email" id="emailAddress" name="email" class="form-control px-3 py-2 custom-form-control" placeholder="Your email address">
+                            </div>
+                            <div class="col-12">
+                                <label for="subject" class="form-label text-secondary fw-semibold mb-2">Subject <span class="text-danger">*</span></label>
+                                <select id="subject" required class="form-select px-3 py-2 custom-form-control" name="subject">
+                                    <option value="">Select a subject</option>
+                                    <option value="product-inquiry">Product Inquiry</option>
+                                    <option value="repair-service">Repair Service</option>
+                                    <option value="warranty-claim">Warranty Claim</option>
+                                    <option value="complaint">Complaint</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label text-secondary fw-semibold mb-2" >Message <span class="text-danger">*</span></label>
+                                <textarea id="message" required rows="5" class="form-control px-3 py-2 custom-form-control resize-none" name="message" placeholder="Please describe your inquiry or issue in detail..."></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary w-100 py-3 fw-semibold fs-5 card-hover custom-submit-button">
+                                    <i class="fas fa-paper-plane me-2"></i>Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="d-flex flex-column h-100 gap-4">
+                        <div class="custom-card-bg rounded-3 shadow-xl p-4 p-md-5">
+                            <h3 class="h3 fw-bold text-white mb-4">Find Our Location</h3>
+                            <div class="map-container rounded-3 overflow-hidden mb-3">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15007.49258273614!2d75.33777555!3d19.87707335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd990ad31238e21%3A0x629555197f2c833d!2sTech%20Plaza!5e0!3m2!1sen!2sin!4v1721800000000!5m2!1sen!2sin"
+                                    width="100%"
+                                    height="300"
+                                    style="border:0;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+
+                        <div class="custom-card-bg rounded-3 shadow-xl p-4 p-md-5 flex-grow-1">
+                            <h3 class="h4 fw-bold text-white mb-4">Visit Information</h3>
+                            <div class="d-grid gap-3">
+                                <div class="d-flex align-items-start gap-3">
+                                    <span class="text-primary fs-5">
+                                        <i class="fas fa-car"></i>
+                                    </span>
+                                    <div>
+                                        <p class="fw-semibold text-white mb-0">Parking</p>
+                                        <p class="text-secondary small mb-0">Free reserved parking available for customers</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start gap-3">
+                                    <span class="text-primary fs-5">
+                                        <i class="fas fa-bus"></i>
+                                    </span>
+                                    <div>
+                                        <p class="fw-semibold text-white mb-0">Public Transport</p>
+                                        <p class="text-secondary small mb-0">Metro station is 3 minutes walk from our shop</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start gap-3">
+                                    <span class="text-primary fs-5">
+                                        <i class="fas fa-wheelchair"></i>
+                                    </span>
+                                    <div>
+                                        <p class="fw-semibold text-white mb-0">Accessibility</p>
+                                        <p class="text-secondary small mb-0">Wheelchair accessible with dedicated service counter</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start gap-3">
+                                    <span class="text-primary fs-5">
+                                        <i class="fas fa-wifi"></i>
+                                    </span>
+                                    <div>
+                                        <p class="fw-semibold text-white mb-0">Amenities</p>
+                                        <p class="text-secondary small mb-0">Free high-speed WiFi and refreshments for waiting customers</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+<%-include('footer')%>
